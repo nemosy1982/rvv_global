@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convocation Countdown</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #f4f4f4;
+    }
+    #countdown {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover { opacity: 0.8; }
+    .start { background: #28a745; color: white; }
+    .pause { background: #ffc107; color: black; }
+    .resume { background: #17a2b8; color: white; }
+    .stop { background: #dc3545; color: white; }
+  </style>
+</head>
+<body>
+  <h1>Convocation Countdown</h1>
+  <div id="countdown">Loading...</div>
+  
+  <button class="start" onclick="startTimer()">Start</button>
+  <button class="pause" onclick="pauseTimer()">Pause</button>
+  <button class="resume" onclick="resumeTimer()">Resume</button>
+  <button class="stop" onclick="stopTimer()">Stop</button>
+
+  <script>
+    // Convocation Date (Dec 18, 2025)
+    const targetDate = new Date("Dec 18, 2025 00:00:00").getTime();
+    
+    let countdownInterval;
+    let paused = false;
+    let remainingTime;
+
+    function updateCountdown() {
+      let now = new Date().getTime();
+      let distance = targetDate - now;
+
+      if (paused) return; // do nothing if paused
+
+      remainingTime = distance;
+
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("countdown").innerHTML = "🎓 Convocation Time!";
+        return;
+      }
+
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    }
+
+    function startTimer() {
+      clearInterval(countdownInterval);
+      paused = false;
+      countdownInterval = setInterval(updateCountdown, 1000);
+    }
+
+    function pauseTimer() {
+      paused = true;
+    }
+
+    function resumeTimer() {
+      if (paused) {
+        paused = false;
+      }
+    }
+
+    function stopTimer() {
+      clearInterval(countdownInterval);
+      document.getElementById("countdown").innerHTML = "Countdown Stopped";
+    }
+
+    // auto-start when page loads
+    startTimer();
+  </script>
+</body>
+</html>

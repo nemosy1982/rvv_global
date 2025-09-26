@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: aquamarine;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: blueviolet;
+            margin: 0;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: blueviolet;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rayfield Medicals Patients Diagnostic <Form></Form></h1>
+    </header>
+    <form action="">
+        <label for="Patient name">Patient Name:</label>
+        <input type="text" id="patient-name" name="patient name" required>
+
+        <label for="email" id="patient-email">Patient-Email:</label>
+        <input type="email" id="patient-email" name="patient-email" required>
+
+        <label for="patient-dob">Patient Date of Birth:</label>         
+        <input type="date" id="patient-dob" name="patient-dob" required>
+
+        <label>Symptoms Observed:</label>
+      <div class="btn-group">
+        <input type="checkbox" id="fever" name="symptoms" value="Fever">
+        <label for="fever">Fever</label>
+
+        <input type="checkbox" id="cough" name="symptoms" value="Cough">
+        <label for="cough">Cough</label>
+
+        <input type="checkbox" id="headache" name="symptoms" value="Headache">
+        <label for="headache">Headache</label>
+
+        <input type="checkbox" id="fatigue" name="symptoms" value="Fatigue">
+        <label for="fatigue">Fatigue</label>
+      </div>
+       <div class="section">
+      <label>Gender:</label>
+      <div class="btn-group">
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+      </div>
+    </div>
+
+    </form>
+</body>
+</html>

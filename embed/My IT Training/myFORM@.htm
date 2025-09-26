@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rayfield Medicals - Patients Diagnostic Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .btn-group input {
+      margin-right: 10px;
+    }
+    .submit-buttons {
+      margin-top: 20px;
+    }
+    input[type="submit"], input[type="button"] {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+    }
+    input[type="button"] {
+      background-color: #007BFF;
+      color: white;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <h2>Rayfield Medicals - Patient Diagnostic Form</h2>
+
+    <!-- Text Input -->
+    <div class="section">
+      <label for="patientName">Patient Full Name:</label>
+      <input type="text" id="patientName" name="patientName" placeholder="Enter full name">
+    </div>
+
+    <!-- Radio Buttons -->
+    <div class="section">
+      <label>Gender:</label>
+      <div class="btn-group">
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+      </div>
+    </div>
+
+    <!-- Checkboxes -->
+    <div class="section">
+      <label>Symptoms Observed:</label>
+      <div class="btn-group">
+        <input type="checkbox" id="fever" name="symptoms" value="Fever">
+        <label for="fever">Fever</label>
+
+        <input type="checkbox" id="cough" name="symptoms" value="Cough">
+        <label for="cough">Cough</label>
+
+        <input type="checkbox" id="headache" name="symptoms" value="Headache">
+        <label for="headache">Headache</label>
+
+        <input type="checkbox" id="fatigue" name="symptoms" value="Fatigue">
+        <label for="fatigue">Fatigue</label>
+      </div>
+    </div>
+
+    <!-- Submit and Button -->
+    <div class="submit-buttons">
+      <input type="submit" value="Submit Diagnosis">
+      <input type="button" value="Print Form" onclick="window.print();">
+    </div>
+  </form>
+
+</body>
+</html>

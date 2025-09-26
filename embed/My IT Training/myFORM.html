@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rayfield Medicals | Patient Diagnostic Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f9ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #006666;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    form {
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .group-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .group-item label {
+      margin-left: 0.4rem;
+      font-weight: normal;
+    }
+
+    .button-group {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    button {
+      background-color: #006666;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #004d4d;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: 0.5px solid #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .radio-group, .checkbox-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rayfield Medicals | Patient Diagnostic Form</h1>
+  </header>
+
+  <form action="#" method="POST">
+    <!-- Personal Info -->
+    <section>
+      <h2>Personal Information</h2>
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" name="full-name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="contact">Phone Number:</label>
+      <input type="text" id="contact" name="contact" required>
+
+      <label for="address">Residential Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+    </section>
+
+    <!-- Gender / Marital -->
+    <section>
+      <h2>Demographic Details</h2>
+      <label>Gender:</label>
+      <div class="radio-group">
+        <div class="group-item"><input type="radio" id="male" name="gender" value="Male" required><label for="male">Male</label></div>
+        <div class="group-item"><input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label></div>
+        <div class="group-item"><input type="radio" id="other" name="gender" value="Other"><label for="other">Other</label></div>
+      </div>
+
+      <label for="marital-status">Marital Status:</label>
+      <select id="marital-status" name="marital-status" required>
+        <option value="">Select</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Divorced">Divorced</option>
+        <option value="Widowed">Widowed</option>
+      </select>
+    </section>
+
+    <!-- Medical Info -->
+    <section>
+      <h2>Medical Information</h2>
+      <label for="symptoms">Describe Symptoms:</label>
+      <textarea id="symptoms" name="symptoms" rows="4" required></textarea>
+
+      <label>Observed Symptoms:</label>
+      <div class="checkbox-group">
+        <div class="group-item"><input type="checkbox" id="fever" name="observed-symptoms" value="Fever"><label for="fever">Fever</label></div>
+        <div class="group-item"><input type="checkbox" id="cough" name="observed-symptoms" value="Cough"><label for="cough">Cough</label></div>
+        <div class="group-item"><input type="checkbox" id="headache" name="observed-symptoms" value="Headache"><label for="headache">Headache</label></div>
+        <div class="group-item"><input type="checkbox" id="fatigue" name="observed-symptoms" value="Fatigue"><label for="fatigue">Fatigue</label></div>
+        <div class="group-item"><input type="checkbox" id="vomiting" name="observed-symptoms" value="Vomiting"><label for="vomiting">Vomiting</label></div>
+      </div>
+
+      <label for="duration">Duration of Symptoms:</label>
+      <input type="text" id="duration" name="duration" placeholder="e.g., 3 days" required>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section>
+      <h2>Emergency Contact</h2>
+      <label for="emergency-name">Name:</label>
+      <input type="text" id="emergency-name" name="emergency-name" required>
+
+      <label for="emergency-phone">Phone:</label>
+      <input type="text" id="emergency-phone" name="emergency-phone" required>
+
+      <label for="relationship">Relationship to Patient:</label>
+      <input type="text" id="relationship" name="relationship" required>
+    </section>
+
+    <hr>
+
+    <!-- Doctor's Diagnosis and Prescription -->
+    <section>
+      <h2>Physician's Diagnosis & Prescription</h2>
+
+      <label for="diagnosis">Diagnosis:</label>
+      <textarea id="diagnosis" name="diagnosis" rows="3" placeholder="e.g., Malaria, Upper Respiratory Tract Infection, Gastroenteritis..." required></textarea>
+
+      <label for="prescription">Medications & Dosage:</label>
+      <textarea id="prescription" name="prescription" rows="4" placeholder="e.g., Artemether 80mg - 1 amp IM daily × 3 days, Paracetamol 500mg - 1 tab TDS × 5 days" required></textarea>
+
+      <label for="treatment-plan">Treatment Instructions:</label>
+      <textarea id="treatment-plan" name="treatment-plan" rows="3" placeholder="e.g., Ensure rest, increase fluid intake, avoid oily foods, follow up in 3 days" required></textarea>
+
+      <label for="doctor-name">Doctor's Name:</label>
+      <input type="text" id="doctor-name" name="doctor-name" required>
+
+      <label for="doctor-sign">Doctor's Signature / Initials:</label>
+      <input type="text" id="doctor-sign" name="doctor-sign" required>
+    </section>
+
+    <!-- Submit -->
+    <div class="button-group">
+      <button type="submit">Submit Record</button>
+      <button type="reset">Clear Form</button>
+      <button type="button" onclick="window.print();">Print Form</button>
+    </div>
+  </form>
+</body>
+</html>

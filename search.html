@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search • RV&amp;V Global Resources</title>
+
+  <!-- Minimal, self-contained styles for the search page -->
+  <style>
+    :root{
+      --brand:#004080;
+      --accent:#ff6600;
+      --muted:#6b7280;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --radius:10px;
+      --shadow: 0 6px 20px rgba(11, 22, 39, 0.08);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0b1727;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* Header / Navbar (light) */
+    .site-header{
+      background:#fff;
+      border-bottom:1px solid #eef2f7;
+      box-shadow:0 2px 6px rgba(12,20,30,0.02);
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .site-header .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+    .logo{ font-weight:700; color:var(--brand); font-size:1.05rem; text-decoration:none; }
+    .nav-spacer{flex:1}
+
+    /* Page hero + search box */
+    .search-hero{
+      max-width:1200px;
+      margin:28px auto 12px;
+      padding:22px;
+    }
+    .search-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      display:grid;
+      gap:14px;
+    }
+
+    .search-top{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .search-title{
+      font-size:1.2rem;
+      font-weight:700;
+      color:var(--brand);
+      margin-right:auto;
+    }
+    .search-desc{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .search-bar {
+      display:flex;
+      gap:8px;
+      margin-top:6px;
+    }
+    .search-input{
+      flex:1;
+      padding:12px 16px;
+      border-radius:10px;
+      border:1px solid #e6ecf5;
+      font-size:1rem;
+      outline:none;
+      box-shadow:none;
+    }
+    .search-input:focus{
+      border-color:var(--brand);
+      box-shadow:0 6px 20px rgba(0,64,128,0.08);
+    }
+    .search-btn{
+      background:var(--brand);
+      color:white;
+      border:0;
+      padding:12px 16px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .search-btn:active{transform:translateY(1px);}
+
+    /* Filters & meta */
+    .meta-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    .meta-pill{
+      background:#fff;
+      border:1px solid #eef2f7;
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    /* Results */
+    .results-wrap{
+      max-width:1200px;
+      margin:18px auto 60px;
+      padding:0 20px;
+    }
+    .results-grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .result-card{
+      background:var(--card);
+      padding:16px;
+      border-radius:10px;
+      box-shadow: 0 6px 18px rgba(8,16,30,0.04);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .result-card:hover{
+      transform:translateY(-6px);
+      box-shadow: 0 10px 26px rgba(8,16,30,0.08);
+    }
+    .result-thumb{
+      width:88px;
+      height:68px;
+      border-radius:8px;
+      background:#eef4ff;
+      flex-shrink:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--brand);
+      font-weight:700;
+    }
+    .result-body{flex:1;}
+    .result-title{font-weight:700; color:#072033; margin-bottom:6px;}
+    .result-excerpt{color:var(--muted); font-size:0.95rem; margin-bottom:8px;}
+    .result-meta{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+    .badge{font-size:0.8rem; padding:6px 8px; border-radius:6px; background:#f1f5f9; color:var(--muted);}
+
+    /* Pagination */
+    .pagination{
+      margin-top:18px;
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      align-items:center;
+    }
+    .page-btn{
+      background:#fff;
+      border:1px solid #e6ecf5;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .page-btn.active{background:var(--brand); color:#fff; border-color:var(--brand);}
+
+    /* Empty state */
+    .empty {
+      text-align:center;
+      padding:44px;
+      color:var(--muted);
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
+      border-radius:10px;
+      margin-top:12px;
+    }
+
+    /* Footer small */
+    .footer-note{
+      max-width:1200px;
+      margin:0 auto 60px;
+      padding:0 20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:700px){
+      .result-thumb{width:74px;height:58px;}
+      .search-input{padding:10px;}
+      .search-card{padding:18px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="Logo">RV&amp;V Global Resources</a>
+      <div class="nav-spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Search hero -->
+  <main>
+    <section class="search-hero" aria-labelledby="search-heading">
+      <div class="search-card" role="region" aria-label="Search">
+        <div class="search-top">
+          <div>
+            <div id="search-heading" class="search-title">Search RV&amp;V Resources</div>
+            <div class="search-desc">Search articles, projects, services, jobs and more. Type a keyword and press Enter.</div>
+          </div>
+
+          <div class="meta-row" aria-hidden="true">
+            <div class="meta-pill">Context: All content</div>
+            <div class="meta-pill">Scope: Global</div>
+            <div class="meta-pill">Filter: Relevance</div>
+          </div>
+        </div>
+
+        <div class="search-bar" role="search" aria-label="Site search">
+          <input id="q" class="search-input" type="search" placeholder="Search by keyword, e.g. 'solar', 'IoT', 'project management'…" aria-label="Search query">
+          <button id="btnSearch" class="search-btn" aria-label="Search">Search</button>
+        </div>
+
+        <div style="margin-top:6px;color:var(--muted);font-size:0.9rem">
+          Tip: Use quotes for exact phrases, e.g. <code>"solar mini-grid"</code>. Results update as you type.
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results-wrap" aria-live="polite">
+      <div id="resultsMeta" style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;">
+        <div id="resultsCount" style="color:var(--muted)">Enter a search term to begin...</div>
+        <div id="resultsFilter" style="color:var(--muted);font-size:0.95rem"></div>
+      </div>
+
+      <div id="results" class="results-grid" role="list"></div>
+
+      <div id="pagination" class="pagination" aria-hidden="true"></div>
+
+      <div id="empty" class="empty" style="display:none;">No results found. Try different keywords or broaden your search.</div>
+    </section>
+  </main>
+
+  <p class="footer-note">Need help? Contact <a href="contact.html">our support team</a> or email <a href="mailto:info@rvvglobal.com">info@rvvglobal.com</a>.</p>
+
+  <!-- Script: debounced search + fetch + simple pagination -->
+  <script>
+    (function(){
+      const qEl = document.getElementById('q');
+      const btn = document.getElementById('btnSearch');
+      const resultsEl = document.getElementById('results');
+      const resultsCount = document.getElementById('resultsCount');
+      const paginationEl = document.getElementById('pagination');
+      const emptyEl = document.getElementById('empty');
+
+      let timer = null;
+      let lastQuery = '';
+      let currentPage = 1;
+      const pageSize = 6;
+
+      // Demo fallback data (used if API not available)
+      const demoData = [
+        { id:'p1', type:'Project', title:'Solar Mini-grid Deployment — Oyo', excerpt:'Installed 250kW mini-grid powering 6 communities.', date:'2024-11-02' },
+        { id:'a1', type:'Article', title:'Renewable Energy for SMEs', excerpt:'How businesses can adopt solar power affordably.', date:'2025-02-14' },
+        { id:'s1', type:'Service', title:'CCTV & Security Integrations', excerpt:'Design and installation of end-to-end CCTV systems for offices.', date:'2024-10-09' },
+        { id:'j1', type:'Job', title:'Installation Technician (Energy)', excerpt:'Field role — solar installation and maintenance.', date:'2025-05-01' },
+        { id:'a2', type:'Article', title:'IoT in Agriculture', excerpt:'Smart sensors & automation for yield improvement.', date:'2025-01-10' },
+        { id:'p2', type:'Project', title:'Affordable Housing Phase I', excerpt:'200-unit housing development with solar-ready units.', date:'2023-08-21' },
+        { id:'s2', type:'Service', title:'POS & Payment Systems', excerpt:'Deployment and training for retail payment systems.', date:'2024-06-06' },
+        { id:'a3', type:'Article', title:'AI for Energy Forecasting', excerpt:'Using ML to predict energy usage and optimize costs.', date:'2025-03-18' },
+        { id:'p3', type:'Project', title:'Smart Hub — Innovation Center', excerpt:'A co-working & accelerator center for startups.', date:'2024-04-30' }
+      ];
+
+      // Debounce helper
+      function debounce(fn, delay=300){
+        return function(...args){
+          clearTimeout(timer);
+          timer = setTimeout(()=> fn.apply(this,args), delay);
+        };
+      }
+
+      // Render helper
+      function renderResults(items){
+        resultsEl.innerHTML = '';
+        if(!items || items.length === 0){
+          emptyEl.style.display = 'block';
+          paginationEl.style.display = 'none';
+          resultsCount.textContent = '0 results';
+          return;
+        }
+        emptyEl.style.display = 'none';
+        paginationEl.style.display = 'flex';
+
+        const start = (currentPage-1)*pageSize;
+        const pageItems = items.slice(start, start + pageSize);
+
+        pageItems.forEach(item=>{
+          const card = document.createElement('article');
+          card.className = 'result-card';
+          card.setAttribute('role','listitem');
+
+          card.innerHTML = `
+            <div class="result-thumb">${item.type[0]}</div>
+            <div class="result-body">
+              <div class="result-title">${escapeHtml(item.title)}</div>
+              <div class="result-excerpt">${escapeHtml(item.excerpt)}</div>
+              <div class="result-meta">
+                <div class="badge">${escapeHtml(item.type)}</div>
+                <div style="color:var(--muted);font-size:0.9rem">${item.date || ''}</div>
+                <a href="${(item.url) ? item.url : '#'}" style="margin-left:auto;color:var(--brand);text-decoration:none;font-weight:600">View</a>
+              </div>
+            </div>
+          `;
+          resultsEl.appendChild(card);
+        });
+
+        // pagination
+        const totalPages = Math.ceil(items.length / pageSize) || 1;
+        paginationEl.innerHTML = '';
+        for(let p=1;p<=totalPages;p++){
+          const btn = document.createElement('button');
+          btn.className = 'page-btn' + (p===currentPage ? ' active' : '');
+          btn.textContent = p;
+          btn.addEventListener('click', ()=> {
+            currentPage = p;
+            renderResults(items);
+            window.scrollTo({top:200, behavior:'smooth'});
+          });
+          paginationEl.appendChild(btn);
+        }
+
+        resultsCount.textContent = `${items.length} result${items.length>1?'s':''}`;
+      }
+
+      // Basic HTML-escape
+      function escapeHtml(s){
+        return s?.replace?.(/[&<>"']/g, (m)=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'})[m]) ?? '';
+      }
+
+      // Try API search, else fallback to demo filter
+      async function performSearch(q){
+        lastQuery = q;
+        if(!q || q.trim().length < 1){
+          resultsEl.innerHTML = '';
+          resultsCount.textContent = 'Enter a search term to begin...';
+          paginationEl.style.display = 'none';
+          emptyEl.style.display = 'none';
+          return;
+        }
+
+        resultsCount.textContent = 'Searching…';
+        currentPage = 1;
+
+        // Build API URL (change if your backend path differs)
+        const apiUrl = `/api/search?q=${encodeURIComponent(q.trim())}`;
+
+        try {
+          const resp = await fetch(apiUrl, { method:'GET', headers:{ 'Accept':'application/json' } });
+          if(!resp.ok) throw new Error('API error');
+          const data = await resp.json();
+          // Expect data as array of {id,type,title,excerpt,date,url}
+          if(Array.isArray(data) && data.length >= 0){
+            renderResults(data);
+            return;
+          }
+          // otherwise fallback
+          throw new Error('unexpected payload');
+        } catch (err){
+          // Fallback: run simple local filter (case-insensitive)
+          const ql = q.trim().toLowerCase();
+          const filtered = demoData.filter(item =>
+            (item.title + ' ' + item.excerpt + ' ' + (item.type||'')).toLowerCase().includes(ql)
+          );
+          renderResults(filtered);
+        }
+      }
+
+      // wire debounce to input
+      const debounced = debounce((ev)=>{
+        performSearch(ev.target.value);
+      }, 300);
+
+      qEl.addEventListener('input', debounced);
+      qEl.addEventListener('keydown', (e)=> {
+        if(e.key === 'Enter') {
+          e.preventDefault();
+          performSearch(qEl.value);
+        }
+      });
+      btn.addEventListener('click', ()=> performSearch(qEl.value));
+
+      // accessibility: focus input on load
+      window.addEventListener('load', ()=> { qEl.focus(); });
+
+      // optional: prefill from querystring ?q=
+      (function prefill(){
+        const params = new URLSearchParams(location.search);
+        const q = params.get('q') || '';
+        if(q) {
+          qEl.value = q;
+          performSearch(q);
+        }
+      })();
+    })();
+  </script>
+</body>
+</html>

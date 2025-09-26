@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JavaScript Calculator</title>
+<style>
+:root{
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --accent: #4f46e5;
+  --muted: #6b7280;
+  --btn: #eef2ff;
+}
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+body{
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,#eef2ff,#ffffff);
+  padding:20px;
+}
+.calculator{
+  width:340px; max-width:96vw;
+  background:var(--panel); border-radius:12px; padding:16px;
+  box-shadow:0 8px 24px rgba(2,6,23,0.08);
+}
+.display{
+  background:#0f1724; color:white; border-radius:8px; padding:10px 12px;
+  display:flex; flex-direction:column; align-items:flex-end; gap:6px;
+  min-height:72px;
+}
+.display .history{font-size:12px; color:rgba(255,255,255,0.75);}
+.display .output{font-size:28px; font-weight:600; word-break:break-all;}
+.buttons{
+  margin-top:12px; display:grid; gap:8px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.button{
+  height:52px; border-radius:8px; background:var(--btn);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; cursor:pointer; user-select:none; border:none;
+  box-shadow:inset 0 -1px 0 rgba(0,0,0,0.03);
+}
+.button.operator{background:#dbeafe; color:var(--accent); font-weight:600;}
+.button.action{background:#fef3c7;}
+.button.equal{background:var(--accent); color:white; grid-column: span 2;}
+.button.wide{grid-column: span 2;}
+.button:active{transform:translateY(1px);}
+.footer{margin-top:10px; font-size:12px; color:var(--muted); text-align:center;}
+</style>
+</head>
+<body>
+  <div class="calculator" role="application" aria-label="Calculator">
+    <div class="display" id="display" aria-live="polite">
+      <div class="history" id="history">&nbsp;</div>
+      <div class="output" id="output">0</div>
+    </div>
+
+    <div class="buttons" id="buttons">
+      <button class="button action" data-action="clear">C</button>
+      <button class="button action" data-action="back">⌫</button>
+      <button class="button operator" data-value="%">%</button>
+      <button class="button operator" data-value="/">÷</button>
+
+      <button class="button" data-value="7">7</button>
+      <button class="button" data-value="8">8</button>
+      <button class="button" data-value="9">9</button>
+      <button class="button operator" data-value="*">×</button>
+
+      <button class="button" data-value="4">4</button>
+      <button class="button" data-value="5">5</button>
+      <button class="button" data-value="6">6</button>
+      <button class="button operator" data-value="-">−</button>
+
+      <button class="button" data-value="1">1</button>
+      <button class="button" data-value="2">2</button>
+      <button class="button" data-value="3">3</button>
+      <button class="button operator" data-value="+">+</button>
+
+      <button class="button wide" data-value="0">0</button>
+      <button class="button" data-value=".">.</button>
+      <button class="button equal" data-action="equals">=</button>
+    </div>
+
+    <div class="footer">Keyboard: numbers, + - * / ( ) . % Enter (equals), Backspace, Esc (clear)</div>
+  </div>
+
+<script>
+(function(){
+  const displayOutput = document.getElementById('output');
+  const displayHistory = document.getElementById('history');
+  const buttons = document.getElementById('buttons');
+
+  let current = '';    // the current expression shown / being typed
+  let last = '';       // last expression evaluated (for history)
+
+  function updateDisplay(){
+    displayOutput.textContent = current || '0';
+    displayHistory.textContent = last ? last : '\u00A0';
+  }
+
+  function isOperator(ch){
+    return ['+','-','*','/'].includes(ch);
+  }
+
+  function appendValue(v){
+    const lastChar = current.slice(-1);
+
+    // dot handling: only one dot per number segment
+    const lastNumberMatch = current.match(/(\d*\.?\d*)$/);
+    const lastNumber = lastNumberMatch ? lastNumberMatch[0] : '';
+    if(v === '.' && lastNumber.includes('.')) return;
+
+    // percent handling: only after a number or closing paren
+    if(v === '%') {
+      if(!/\d|\)$/.test(lastChar)) return;
+      current += v;
+      updateDisplay();
+      return;
+    }
+
+    // operator handling: avoid invalid operator chains
+    if(isOperator(v)) {
+      if(!current) {
+        // allow '-' to start a negative number, disallow others
+        if(v !== '-') return;
+        current += v; updateDisplay(); return;
+      }
+      if(isOperator(lastChar)) {
+        // replace the last operator with the new one (so user can change)
+        current = current.slice(0, -1) + v;
+        updateDisplay(); return;
+      }
+      current += v;
+      updateDisplay();
+      return;
+    }
+
+    // parentheses or digits
+    current += v;
+    updateDisplay();
+  }
+
+  function applyAction(action){
+    if(action === 'clear'){ current = ''; last = ''; updateDisplay(); return; }
+    if(action === 'back'){ current = current.slice(0, -1); updateDisplay(); return; }
+    if(action === 'equals'){ evaluateExpression(); return; }
+  }
+
+  function sanitizeExpression(expr){
+    // allow only digits, operators, parentheses, dot, spaces and percent
+    if(!/^[0-9+\-*/().%\s]+$/.test(expr)) return null;
+    // Normalize some unicode operator symbols (if pasted)
+    expr = expr.replace(/[×]/g, '*').replace(/[÷]/g, '/').replace(/[−]/g, '-');
+    // Convert percent signs to division by 100:
+    // Simpler safe transformation: replace '%' globally with '/100'
+    expr = expr.replace(/%/g, '/100');
+    return expr;
+  }
+
+  function evaluateExpression(){
+    if(!current) return;
+    const sanitized = sanitizeExpression(current);
+    if(sanitized === null){
+      displayOutput.textContent = 'Error';
+      return;
+    }
+    try{
+      // Evaluate in a safer sandbox than eval: Function but restrict characters above.
+      const result = Function('"use strict"; return (' + sanitized + ')')();
+      if(typeof result === 'number' && isFinite(result)){
+        // Reduce floating point noise: keep up to 12 significant digits
+        const formatted = parseFloat(result.toPrecision(12)).toString();
+        last = current + ' =';
+        current = formatted;
+      } else {
+        current = 'Error';
+      }
+    } catch (e){
+      current = 'Error';
+    }
+    updateDisplay();
+  }
+
+  // Click handling (event delegation)
+  buttons.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    const val = btn.dataset.value;
+    const action = btn.dataset.action;
+    if(action) applyAction(action);
+    else if(val) appendValue(val);
+  });
+
+  // Keyboard support
+  window.addEventListener('keydown', (e) => {
+    if(e.key >= '0' && e.key <= '9') { appendValue(e.key); e.preventDefault(); return; }
+    if(['+','-','*','/','(',')','.','%'].includes(e.key)) { appendValue(e.key); e.preventDefault(); return; }
+    if(e.key === 'Enter' || e.key === '='){ evaluateExpression(); e.preventDefault(); return; }
+    if(e.key === 'Backspace'){ applyAction('back'); e.preventDefault(); return; }
+    if(e.key === 'Escape'){ applyAction('clear'); e.preventDefault(); return; }
+  });
+
+  // Initialize display
+  updateDisplay();
+})();
+</script>
+</body>
+</html>
+m

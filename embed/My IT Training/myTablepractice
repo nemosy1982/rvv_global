@@ -1,0 +1,228 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAYFIELD MEDICALS CATALOGUE</title>
+    <style>
+        
+         table {
+      border-collapse: collapse;
+    }
+
+        table, th, td {
+            border: 1px sandybrown solid !important;
+             padding: 8px;  
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+        <tr>
+            <td>Paracetamol</td>
+            <td>Pain Reliever</td>
+            <td>$5.00</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Amoxicillin</td>
+            <td>Antibiotic</td>
+            <td>$10.00</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Ibuprofen</td>
+            <td>Pain Reliever</td>
+            <td>$7.00</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>Metformin</td>
+            <td>Diabetes Medication</td>
+            <td>$15.00</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Omeprazole</td>
+            <td>Antacid</td>
+            <td>$8.00</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Simvastatin</td>
+            <td>Cholesterol Medication</td>
+            <td>$12.00</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <td>Lisinopril</td>
+            <td>Blood Pressure Medication</td>
+            <td>$9.00</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Levothyroxine</td>
+            <td>Thyroid Medication</td>
+            <td>$14.00</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Albuterol Inhaler</td>
+            <td>Asthma Medication</td>
+            <td>$20.00</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Warfarin</td>
+            <td>Anticoagulant</td>
+            <td>$18.00</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>Insulin</td>
+            <td>Diabetes Medication</td>
+            <td>$25.00</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Hydrochlorothiazide</td>
+            <td>Diuretic</td>
+            <td>$6.00</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Azithromycin</td>
+            <td>Antibiotic</td>
+            <td>$11.00</td>
+            <td>55</td>
+        </tr>
+        <tr>
+            <td>Prednisone</td>
+            <td>Corticosteroid</td>
+            <td>$13.00</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>Furosemide</td>
+            <td>Diuretic</td>
+            <td>$7.50</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>Clopidogrel</td>
+            <td>Antiplatelet</td>
+            <td>$16.00</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <td>Gabapentin</td>
+            <td>Nerve Pain Medication</td>
+            <td>$9.50</td>
+            <td>65</td>
+        </tr>
+        <tr>
+            <td>Atorvastatin</td>
+            <td>Cholesterol Medication</td>
+            <td>$17.00</td>
+            <td>30</td>
+        </tr>
+        <tr>    
+            <td>Ranitidine</td>
+            <td>Antacid</td>
+            <td>$8.50</td>
+            <td>50</td> 
+        </tr>
+        <tr>
+            <td>Montelukast</td>
+            <td>Asthma Medication</td>
+            <td>$19.00</td>
+            <td>20</td>
+        </tr>
+        <tr>    
+            <td>Levothyroxine</td>
+            <td>Thyroid Medication</td>
+            <td>$14.50</td>
+            <td>25</td>
+        </tr>
+        <tr>    
+            <td>Metoprolol</td>
+            <td>Blood Pressure Medication</td>
+            <td>$10.50</td>
+            <td>40</td>
+        </tr>
+        <tr>    
+            <td>Sertraline</td>
+            <td>Antidepressant</td>
+            <td>$15.50</td>
+            <td>30</td>
+        </tr>
+        <tr>    
+            <td>Omeprazole</td>
+            <td>Antacid</td>
+            <td>$9.00</td>
+            <td>60</td>
+        </tr>
+        <tr>    
+            <td>Escitalopram</td>
+            <td>Antidepressant</td>
+            <td>$18.50</td>
+            <td>35</td>
+        </tr>
+        <tr>    
+            <td>Alprazolam</td>
+            <td>Anti-anxiety Medication</td>
+            <td>$12.50</td>
+            <td>50</td>
+        </tr>
+        <tr>    
+            <td>Tramadol</td>
+            <td>Pain Reliever</td>
+            <td>$11.50</td>
+            <td>45</td>
+        </tr>
+        <tr>    
+            <td>Fluticasone Nasal Spray</td>
+            <td>Allergy Medication</td>
+            <td>$22.00</td>
+            <td>15</td>
+        </tr>
+        <tr>    
+            <td>Levocetirizine</td>
+            <td>Allergy Medication</td>
+            <td>$20.50</td>
+            <td>25</td>
+        </tr>
+        <tr>    
+            <td>Clonazepam</td>
+            <td>Anti-anxiety Medication</td>
+            <td>$13.50</td>
+            <td>30</td>
+        </tr>
+        <tr>    
+            <td>Azithromycin</td>
+            <td>Antibiotic</td>
+            <td>$10.50</td>
+            <td>55</td>
+        </tr>
+        <tr>    
+            <td>Hydrochlorothiazide</td>
+            <td>Diuretic</td>
+            <td>$6.50</td>
+            <td>90</td>
+        </tr>
+    </table>
+</body>
+</html>
+

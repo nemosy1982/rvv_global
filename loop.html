@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="loopscript.js"></script>
+</head>
+<body>
+    <input type="number" id="num-1st" placeholder="Enter a number">
+    <select name="op" id="op">
+        <option value="plus">+</option>
+        <option value="minus">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+    </select>
+    <input type="number" id="num-2nd" placeholder="Enter a number" >
+    <input type="submit" id="submit" onclick="calculate(document.getElementById('num-1st').value, document.getElementById('num-2nd').value, document.getElementById('op').value)" value="Calculate">
+    <div>
+        <h2 id="result"></h2>
+    </div>
+    <input type="submit" id="loop-submit" onclick="loopFunction()" value="Loop">
+    <div>
+        <h2 id="loop-result" value=0>0</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | RV&V Global Resources</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  
+ <header>
+  <!-- Navbar -->
+  <nav class="navbar">
+     <button id="menu-toggle" class="navbar-toggler">☰</button>
+  <ul id="nav-links" class="nav-links">
+    <div class="logo"> <img src="rvv-logo.png" width="100" height="100" alt="RV&V Global Resources Logo">
+    </div>
+<!-- Navigation with Dropdowns -->
+  <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="about.html" >About</a></li>
+
+  <!-- Dropdown: Ventures -->
+  <li class="dropdown">
+    <a href="ventures.html">Ventures▾</a>
+    <ul class="dropdown-menu">
+      <li><a href="estate.html">Real Estate</a></li>
+      <li><a href="energy.html">Energy Solutions</a></li>
+      <li><a href="technology.html">Tech Innovations</a></li>
+    </ul>
+  </li>
+
+  <!-- Dropdown: Services -->
+  <li class="dropdown">
+    <a href="services.html">Services▾</a>
+    <ul class="dropdown-menu">
+      <li><a href="specialized-consulting.html">Consulting</a></li>
+      <li><a href="project-management.html">Project Management</a></li>
+      <li><a href="training.html">Training & Capacity Building</a></li>
+    </ul>
+  </li>
+
+  <!-- Dropdown: Portfolio -->
+  <li class="dropdown">
+    <a href="portfolio.html">Portfolio▾</a>
+    <ul class="dropdown-menu">
+      <li><a href="Completed-Projects.html">Completed Projects</a></li>
+      <li><a href="Ongoing-Projects.html">Ongoing Projects</a></li>
+      <li><a href="Case-Studies.html">Case Studies</a></li>
+    </ul>
+  </li>
+
+  <!-- Dropdown: Insights -->
+  <li class="dropdown">
+    <a href="blog.html">Blog & Insights▾</a>
+    <ul class="dropdown-menu">
+      <li><a href="Articles.html">Articles</a></li>
+      <li><a href="Research-Papers.html">Research Papers</a></li>
+      <li><a href="News-&-Updates.html">News & Updates</a></li>
+    </ul>
+  </li>
+
+  <!-- Dropdown: Career -->
+  <li class="dropdown">
+    <a href="career.html" class="active">Career▾</a>
+    <ul class="dropdown-menu">
+      <li><a href="Job-Openings.html">Job Openings</a></li>
+      <li><a href="Internships.html">Internships</a></li>
+      <li><a href="Career-Development.html">Career Development</a></li>
+    </ul>
+  </li>
+
+  <!-- Dropdown: Contact -->
+  <li class="dropdown">
+    <a href="contact.html">Contact▾</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Contact Form</a></li>
+      <li><a href="#">Office Locations</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </li>
+  <!-- Search Bar -->
+ <!-- Search Bar -->
+      <li class="search-bar">
+        <form action="search.html" method="GET">
+          <input type="text" name="q" placeholder="Search..." required>
+          <button type="submit">🔍</button>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</ul>
+</header>
+  <!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Careers</h1>
+    <p>Explore exciting opportunities and grow with us at RV&V Global Resources.</p>
+  </div>
+</section>
+  <!-- Careers Section -->
+  <section class="career-section">
+    <h2>Why Work With Us?</h2>
+    <p>We foster an environment of innovation, collaboration, and professional development. Our people are at the heart of everything we do.</p>
+    <div class="career-benefits">
+      <div class="benefit-card">
+        <h3>🌱 Growth & Learning</h3>
+        <p>Continuous training and mentorship to help you develop your skills.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🤝 Team Spirit</h3>
+        <p>Collaborative culture where every voice matters and innovation thrives.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🌍 Global Opportunities</h3>
+        <p>Work on impactful projects with international exposure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Roles -->
+  <section class="job-openings">
+    <h2>Current Openings</h2>
+    <div class="job-listings">
+      <div class="job-card">
+        <h3>Business Development Executive</h3>
+        <p>Location: Lagos, Nigeria</p>
+        <p><strong>Requirements:</strong> 2+ years experience, excellent communication skills, and proven sales track record.</p>
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Apply Now
+</button>
+    </div>
+      <div class="job-card">
+        <h3>Solar Energy Engineer</h3>
+        <p>Location: Abuja, Nigeria</p>
+        <p><strong>Requirements:</strong> B.Eng Electrical/Mechanical, 3+ years experience in solar design & installation.</p>
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Apply Now
+</button>      <!-- Button to Open the Modal -->
+    </div>
+      <div class="job-card">
+        <h3>IT & Tech Solutions Officer</h3>
+        <p>Location: Remote</p>
+        <p><strong>Requirements:</strong> Degree in Computer Science/IT, proficiency in web/app development.</p>
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Apply Now
+</button>      
+    </div>
+  </section>
+
+  <!-- Career Call-to-Action -->
+  <section class="career-cta">
+    <h2>Didn’t Find a Role That Fits?</h2>
+    <p>We are always looking for passionate individuals to join our team. Send us your CV and let’s grow together.</p>
+    <a href="contact.html" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Submit CV</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 RV&V Global Resources. All rights reserved.</p>
+    <p>Contact: info@rvvglobal.com | +234-701-234-5678</p>
+        <div class="footer-section">
+      <h2>Follow Me</h2>
+      <ul>
+        <li><a href="https://www.youtube.com/@ediongsenyene-amos">YouTube</a></li>
+        <li><a href="https://www.tiktok.com/@ediongsenyene_amos">TikTok</a></li>
+        <li><a href="https://www.linkedin.com/in/ediongsenyene-amos-123456789/"> LinkedIn</a></li>
+        <li><a href="https://twitter.com/ediongsenyene_amos" >Twitter</a></li>
+        <li><a href="https://www.facebook.com/ediongsenyene.amos">Facebook</a></li>
+        <li><a href="https://github.com/ediongsenyene-amos"> GitHub</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+        <h2>Contact Us</h2>
+        <p>Contact us at: <a href="mailto:amosedy5@gmail.com">amosedy5@gmail.com</a></p>
+      <p>Phone: +234 8130244487</p>
+      <p>Address: 15 Ebis Mechanic Road Amarata, Yenagoa</p>
+       </div>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="terms.html">Terms of Service</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript for Navbar -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+  
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Apply for this Job</h4>
+<div class="modal-body">
+  <form>
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="cv" class="form-label">Upload CV</label>
+      <input type="file" class="form-control" id="cv" required>
+    </div>
+    <div class="mb-3">
+      <label for="coverLetter" class="form-label">Cover Letter</label>
+      <textarea class="form-control" id="coverLetter" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Application</button>
+  </form>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

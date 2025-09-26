@@ -1,0 +1,179 @@
+/* ===============================
+   Sustainability Page Styles
+   =============================== */
+
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9fdf9;
+}
+
+h1, h2, h3 {
+  color: #145a32; /* Deep green */
+  margin-bottom: 15px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* Hero Section */
+.sustainability-hero {
+  background: url("images/sustainability-hero.jpg") no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.sustainability-hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 80, 50, 0.65);
+}
+
+.sustainability-hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.sustainability-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.sustainability-hero p {
+  font-size: 1.3rem;
+}
+
+/* Intro Section */
+.sustainability-intro p {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  color: #444;
+}
+
+/* Sustainability Pillars */
+.sustainability-pillars {
+  background: #e8f5e9;
+  padding: 60px 20px;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.pillar-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.pillar-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #1b5e20;
+}
+
+/* Goals Section */
+.sustainability-goals {
+  background: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.goals-list {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+.goals-list li {
+  background: #d0f0c0;
+  margin: 12px 0;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1b4332;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Call to Action */
+.cta {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.cta .btn {
+  display: inline-block;
+  background: #a5d6a7;
+  color: #1b5e20;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta .btn:hover {
+  background: #66bb6a;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: #145a32;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+footer nav a {
+  color: #c8e6c9;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+footer nav a:hover {
+  color: white;
+}
+footer p {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}

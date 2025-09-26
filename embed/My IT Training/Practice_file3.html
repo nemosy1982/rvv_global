@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: aquamarine;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: blueviolet;
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: blueviolet;
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu */
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1.2rem;
+      right: 1rem;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: blueviolet;
+      margin: 4px 0;
+    }
+
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: aquamarine;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: flex;
+      }
+    }
+
+    /* Other existing styles remain unchanged */
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .float-right {
+      float: right;
+      width: 42px;
+      height: 42px;
+    }
+
+    .float-left {
+      float: left;
+      width: 42px;
+      height: 42px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>My Profile</h1>
+
+    <!-- Hamburger Icon -->
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="blog.html">The Blog</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="service.html">My Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Keep the rest of your content unchanged... -->
+    <!-- Example section -->
+    <section>
+      <h2>Welcome to My Profile</h2>
+      <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"/>
+      <p>This is a picture of me in a jacket.</p>
+    </section>
+    <!-- ... other sections like tables, image maps, vegetables list, etc. -->
+  </main>
+
+  <footer style="text-align: center; padding: 1rem; background-color: #eee; margin-top: 2rem;">
+    <p>&copy; 2025 Ediongsenyene Amos. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: aquamarine;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: blueviolet;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: blueviolet;
+      font-weight: bold;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: blueviolet;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: aquamarine;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: flex;
+      }
+    }
+
+    table {
+      font-family: Arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .float-right {
+      float: right;
+      width: 42px;
+      height: 42px;
+    }
+
+    .float-left {
+      float: left;
+      width: 42px;
+      height: 42px;
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #eee;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Profile</h1>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="blog.html">The Blog</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="service.html">My Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to My Profile</h2>
+      <img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"/>
+      <p>This is a picture of me in a jacket.</p>
+    </section>
+
+    <section>
+      <h2>Favorite Vegetables</h2>
+      <ol>
+        <li>Carrots</li>
+        <li>Spinach</li>
+        <li>Broccoli</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Contact Information</h2>
+      <table>
+        <tr>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <td>+234 706 2688 474</td>
+          <td>amosedy5@gmail.com</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Clickable Map</h2>
+      <img src="img_girl.jpg" alt="Clickable Girl" usemap="#girlmap" width="500" height="600"/>
+      <map name="girlmap">
+        <area shape="rect" coords="34,44,270,350" alt="Head" href="https://example.com/head">
+        <area shape="circle" coords="337,300,44" alt="Heart" href="https://example.com/heart">
+      </map>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ediongsenyene Amos. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Images</title>
+</head>
+<style>
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        border: 1px solid black;
+        align-content: center;
+    }
+    
+</style>
+<body>
+
+    <h1>Patient Form</h1>
+    <form action="">
+        <fieldset>
+            <legend>
+                <h1>Personal Info</h1>
+            </legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" disabled>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </fieldset>
+        <fieldset>
+            <legend>
+                <h1>Medical Info</h1>
+            </legend>
+            <textarea id="symptoms" name="symptoms" required placeholder="Describe your symptoms..."></textarea>
+            <label for="medications">Current Medications:</label>
+            <input type="text" id="medications" name="medications">
+            <label for="allergies">Known Allergies:</label>
+            <select name="allergies" id="allergies">
+                <option value="none">None</option>
+                <option value="pollen">Pollen</option>
+                <option value="peanuts">Peanuts</option>
+                <option value="shellfish">Shellfish</option>
+            </select>
+            <label for="level">Allergy Level:</label>
+            <input type="range" id="level" name="level" min="1" max="10" value="5">
+            <label for="fileUpload">Upload Medical Image:</label>
+            <input type="file" id="fileUpload" name="fileUpload" accept="image/*">
+            <input type="url" id="website" name="website" placeholder="http://example.com" pattern="https?://.+">
+            <input type="search" id="search" name="search" placeholder="Search...">
+            <label for="color">Favorite Color:</label>
+            <input type="color" id="color" name="color" value="#ff0000">
+        </fieldset>
+        <fieldset>
+            <legend>
+                <h1>Additional Info</h1>
+            </legend>
+            <label for="search">Search:</label>
+            <input type="search" id="search" name="search" placeholder="Search...">
+        </fieldset>
+            <label for="terms">Accept Terms:</label>
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="subscribe">Subscribe to Newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe">
+        <input type="submit">
+        <input type="reset" value="Reset">
+        <input type="button" value="Cancel" onclick="alert('Form cancelled!')">
+       <select name="options" id="options">
+           <option value="option1">Option 1</option>
+           <option value="option2">Option 2</option>
+           <option value="option3">Option 3</option>
+       </select>
+    </form>
+</body>
+</html>

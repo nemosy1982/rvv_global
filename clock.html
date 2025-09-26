@@ -1,0 +1,71 @@
+<input type="weeks" type="number" value="0" style="display:none;">
+<input id="days" type="number" value="0"> Days 
+<input id="hours" type="number" value="0"> Hours 
+<input id="minutes" type="number" value="0"> Minutes 
+<input id="seconds" type="number" value="0"> Seconds 
+<br><br>
+<button onclick="startTimer()">Start</button>
+<button onclick="stopTimer()">Stop</button>
+<button onclick="resetTimer()">Reset</button>
+
+<script>
+let timer = null;
+
+function startTimer() {
+    if (timer) return; // prevent multiple intervals
+
+    timer = setInterval(() => {
+        // Get current values
+        let weeks = parseInt(document.getElementById("weeks").value);
+        let days = parseInt(document.getElementById("days").value);
+        let hours = parseInt(document.getElementById("hours").value);
+        let minutes = parseInt(document.getElementById("minutes").value);
+        let seconds = parseInt(document.getElementById("seconds").value);
+
+        // Countdown logic
+        if (seconds > 0) {
+            seconds--;
+        } else {
+            seconds = 59;
+            if (minutes > 0) {
+                minutes--;
+            } else {
+                minutes = 59;
+                if (hours > 0) {
+                    hours--;
+                } else {
+                    hours = 23;
+                    if (days > 0) {
+                        days--;
+                    } else {
+                        // Time is up ⏰
+                        clearInterval(timer);
+                        timer = null;
+                        alert("⏰ Countdown finished!");
+                        return;
+                    }
+                }
+            }
+        }
+
+        // Update values back into inputs
+        document.getElementById("days").value = days;
+        document.getElementById("hours").value = hours;
+        document.getElementById("minutes").value = minutes;
+        document.getElementById("seconds").value = seconds;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+    timer = null;
+}
+
+function resetTimer() {
+    stopTimer();
+    document.getElementById("days").value = 0;
+    document.getElementById("hours").value = 0;
+    document.getElementById("minutes").value = 0;
+    document.getElementById("seconds").value = 0;
+}
+</script>

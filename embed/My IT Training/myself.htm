@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Summary</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h2 { color: #2c3e50; }
+    ul { margin-left: 20px; }
+    .menu-icon {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.menu-icon div {
+  height: 4px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-menu {
+  display: none;
+  background-color: #f9f9f9;
+  padding: 15px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.nav-menu.show {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+    
+  </style>
+</head>
+<body>
+   <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+             <div></div>
+             <div></div>
+             <div></div>
+        </div>
+
+        <div class="nav-menu" id="navMenu"></div>
+           <nav>
+               <ol style="list-style-type: none;">
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="blog.html">The Blog </a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="service.html">Our Services</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    </li>
+                </ol>
+            </nav>
+         </div>
+         <nav id="menu" class="hidden">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+    </header>
+  <h1>My Profile Summary</h1>                     
+  <a href="./Practicefile.html"><img src="my picture.jpg" alt="My Profile Picture" style="width: 500px; height: 500px;">
+
+  <h2>Personal Profile</h2>
+  <ul>
+    <li>Gender: Male</li>
+    <li>Birthday: February 14</li>
+    <li>Children:
+      <ul>
+        <li>Ray, 15 years old, SS3</li>
+        <li>Vera, 13 years old, SS1</li>
+        <li>Val Ediongsenyene, 7 years old, Primary (DOB: 2017-05-12), Achievements: Gymnast, Chess Master</li>
+      </ul>
+    </li>
+    <li>Wife: Leads family devotions, handles birthday prayers</li>
+    <li>Legacy Project: EDIONGSENYENE Family Handbook</li>
+    <li>Main Concern: Moral decay in society</li>
+  </ul>
+
+  <h2>Family and Relatives</h2>
+  <ul>
+    <li>Sisters: Married with families; 2 deceased, 1 unmarried</li>
+    <li>Brother: Francis (Contested 2023 House of Reps; considered for commissioner in Akwa Ibom)</li>
+    <li>Sister Nseabasi: Ongoing serious health challenge (10+ months)</li>
+    <li>Sister Victoria: Married, suffering hip/leg pain (suspected spiritual poisoning)</li>
+    <li>Mother: Aged 60, healing from hip/leg pain</li>
+    <li>John (co-tenant): In conflict with the user</li>
+    <li>Aniekpeno: Included in prayer focus</li>
+  </ul>
+
+  <h2>Education and Career</h2>
+  <ul>
+    <li>Education: 400L BSc Computer Science at NOUN</li>
+    <li>Industrial Training Target: NCDMB Bayelsa (concerns: non-indigene, post-grad job)</li>
+    <li>Past Teaching: Mathematics and Computer Science</li>
+    <li>Current Position: Cluster Manager (Super CFSE) at Sunking Nigeria Ltd</li>
+  </ul>
+
+  <h2>Business and Ventures</h2>
+  <ul>
+    <li>Owner of: Rayfield Medicals and Veraval Provisions</li>
+    <li>Partnership Shop Offers:
+      <ul>
+        <li>Barbing salon (includes dyeing/styling)</li>
+        <li>Phone recharge & accessories</li>
+        <li>Cold drinks/snacks</li>
+        <li>POS and gadget charging services</li>
+      </ul>
+    </li>
+    <li>Power Solutions: Solar inverter and generator</li>
+    <li>Funding: Seeking investor contributions</li>
+    <li>Strategy Focus: Customer relationships, competitive pricing</li>
+  </ul>
+
+  <h2>House Remodeling Project</h2>
+  <ul>
+    <li>Goal: Relocation by end of 2025</li>
+    <li>Status: Plan ready, quantity surveyor hired</li>
+    <li>Prayer Focus:
+      <ul>
+        <li>Neighborhood</li>
+        <li>Protection from evil forces</li>
+        <li>Government encroachment</li>
+        <li>Post-relocation peace</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Ministry and Spiritual Commitments</h2>
+  <ul>
+    <li>Founder: Kingdom Light Outreach</li>
+    <li>Teaching Series (March to December):
+      <ul>
+        <li>Includes summaries, book references, self-assessment, branding</li>
+      </ul>
+    </li>
+    <li>Member: Young Ministers Prayer Network</li>
+    <li>Appointed Deputy, National Central Dept, ICC Nigeria</li>
+    <li>Prayer Schedule: Weekly themed prayer slots</li>
+    <li>21-Day March Fasting:
+      <ul>
+        <li>Ends daily at 3 PM</li>
+        <li>Night Prayers: 11 PM - 1/2 AM</li>
+        <li>10 prayer points/day, 2 scriptures per point</li>
+        <li>Themes: Wisdom & Academics, Spiritual Growth, Family Unity, Healing, Finances, Housing Project, Justice & Protection</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Teaching and Family Development</h2>
+  <ul>
+    <li>52-Week Exhortation Plan:
+      <ul>
+        <li>Includes fully written scriptures, detailed topics, and structured prayer points</li>
+      </ul>
+    </li>
+    <li>Parenting Strategy Pillars:
+      <ul>
+        <li>Spiritual and Moral Foundation</li>
+        <li>Education and Skill Development</li>
+        <li>Financial Wisdom</li>
+        <li>Health and Well-being</li>
+        <li>Family and Relationships</li>
+        <li>Each Pillar Includes: Aims, objectives, 10 Q&A, scriptures, and discussion format</li>
+      </ul>
+    </li>
+    <li>Trade-Off Analysis Formats:
+      <ul>
+        <li>Business Strategy Report</li>
+        <li>Sermon or Exhortation</li>
+        <li>Academic or Personal Guide</li>
+        <li>Investor/Partnership Proposal</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Contact Information</h2>
+  <ul>
+    <li>Email: amosedy5@gmail.com</li>
+    <li>Phone Numbers: 07062688474, 08130244487</li>
+  </ul>
+  <footer>
+      <div class="container">
+      <p>&copy; 2025 RV&V Global Solar Resources. All Rights Reserved.</p>
+      <p>Email: info@rvvsolar.com | Phone: +234 8130244487</p>
+      <p>Follow us on social media for the latest updates and offers!</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/ediongsenyeneamos" target="_blank"><img src="facebook.png" alt="Facebook" style="height: 20px;width: 20px;"></a>
+        <a href="https://www.twitter.com/@Amosedy4" target="_self"><img src="twitter.png" alt="Twitter" style="height: 20px;width: 20px;">  </a>
+        <a href="https://www.instagram.com/edy20.20" target="_parent"><img src="instagram.png" alt="instagram" style="height: 20px;width: 20px"></a>       
+         <a href="https://www.linkedin.com/in/ediongsenyene.amos" target="_top"><img src="linkedin.png" alt="LinkedIn" style="height: 20px;width: 20px;"></a>
+    </div>
+    
+    <a href="./RV&V_Global_Resources_Logo.png"><img src="" alt=""></a>
+      
+    </footer>
+  
+  <script>
+  function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+  }
+</script>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('hidden');
+  }
+</script>
+
+
+
+</body>
+</html>
